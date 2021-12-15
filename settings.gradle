@@ -8,3 +8,4 @@ dependencyResolutionManagement {
 }
 rootProject.name = "DFont"
 include ':app'
+include ':DFont'
