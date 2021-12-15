@@ -1,0 +1,39 @@
+name: Test-CI
+
+
+on:
+  push:
+    branches: [ main, feature/workflows-caching ]
+  pull_request:
+    branches: [ main, feature/workflows-caching ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout the code
+        uses: actions/checkout@v2
+
+      - name: Setup JDK
+        uses: actions/setup-java@v2
+        with:
+          distribution: 'zulu'
+          java-version: '11'
+          cache: 'gradle'
+          check-latest: false
+
+
+      - name: Cache Gradle packages
+        uses: actions/cache@v2
+        with:
+          path: |
+            ~/.gradle/caches
+            ~/.gradle/wrapper
+          key: ${{ runner.os }}-gradle-${{ hashFiles('**/*.gradle*', '**/gradle-wrapper.properties') }}
+          restore-keys: |
+            ${{ runner.os }}-gradle-
+
+
+      - name: Run Tests
+        run: ./gradlew test
