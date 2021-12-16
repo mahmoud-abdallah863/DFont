@@ -1,4 +1,4 @@
-package com.mahmoud.dfont
+package com.mahmoud.dfont_app
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle

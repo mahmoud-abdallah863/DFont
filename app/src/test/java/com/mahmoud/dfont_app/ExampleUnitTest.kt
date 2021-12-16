@@ -1,4 +1,4 @@
-package com.mahmoud.dfont
+package com.mahmoud.dfont_app
 
 import org.junit.Test
 
