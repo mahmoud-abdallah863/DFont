@@ -2,9 +2,9 @@ name: Build
 
 on:
   push:
-    branches: [ main, feature/workflows-caching ]
+    branches: [ main ]
   pull_request:
-    branches: [ main, feature/workflows-caching ]
+    branches: [ main ]
     
     
 jobs:

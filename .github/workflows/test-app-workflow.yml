@@ -3,9 +3,9 @@ name: Test-CI
 
 on:
   push:
-    branches: [ main, feature/workflows-caching ]
+    branches: [ main ]
   pull_request:
-    branches: [ main, feature/workflows-caching ]
+    branches: [ main ]
 
 jobs:
   build:
