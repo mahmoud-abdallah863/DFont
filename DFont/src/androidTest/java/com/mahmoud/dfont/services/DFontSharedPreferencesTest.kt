@@ -58,7 +58,6 @@ class DFontSharedPreferencesTest {
 
         DFontSharedPreferences.putString(key, value)
         val returnedValue = DFontSharedPreferences.getString(key, "")
-
         assertEquals(value, returnedValue)
     }
 
@@ -75,7 +74,7 @@ class DFontSharedPreferencesTest {
     fun test_getInt_no_default_value_passes() {
         val returnedValue = DFontSharedPreferences.getInt("key")
 
-        assertEquals(INT_DEFAULT_VALUE, returnedValue)
+        assertEquals(Integer.MIN_VALUE, returnedValue)
     }
 
     @Test
@@ -88,7 +87,6 @@ class DFontSharedPreferencesTest {
 
         assertEquals(value, returnedValue)
     }
-
 
     @Test
     fun test_clear() {
