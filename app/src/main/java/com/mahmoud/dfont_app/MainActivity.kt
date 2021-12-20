@@ -2,7 +2,6 @@ package com.mahmoud.dfont_app
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import com.mahmoud.dfont.extensions.notifyTypefaceChanged
 import com.mahmoud.dfont_app.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
