@@ -6,6 +6,7 @@ import androidx.core.content.res.ResourcesCompat
 import com.mahmoud.dfont.services.ChangeableTypefaceViews
 import com.mahmoud.dfont.services.DFontSharedPreferences
 import com.mahmoud.dfont.utils.DFontKeys.DFONT_TAG
+import com.mahmoud.dfont.utils.DFontKeys.DFONT_TYPEFACE
 
 
 /**
