@@ -3,13 +3,16 @@ package com.mahmoud.dfont.services
 import android.app.Application
 import android.content.Context
 import android.content.SharedPreferences
+import android.util.Log
+import com.mahmoud.dfont.services.DFontSharedPreferences.init
+import com.mahmoud.dfont.utils.DFontKeys.DFONT_LOG_TAG
 import com.mahmoud.dfont.utils.DFontKeys.DFONT_SHARED_PREFERENCES_NAME
 import com.mahmoud.dfont.utils.DFontKeys.INT_DEFAULT_VALUE
 import com.mahmoud.dfont.utils.DFontKeys.STRING_DEFAULT_VALUE
 
 
 /**
- * Preferably init this object in your [Application] class. Then you can use it your app
+ * Preferably init this object in your [Application] class. Then you can use it in your app
  *
  * This object needed to be initialized, to use it's functions. And for changing text typeface
  * to work
@@ -33,6 +36,9 @@ object DFontSharedPreferences {
     fun init(context: Context) {
         if (prefs == null) {
             prefs = context.getSharedPreferences(DFONT_SHARED_PREFERENCES_NAME, Context.MODE_PRIVATE)
+        }else {
+            Log.d(DFONT_LOG_TAG, "DFontSharedPreferences init(): prefs is already define. " +
+                    "You can't re-define prefs variable")
         }
     }
 
