@@ -4,8 +4,10 @@ import android.app.Application
 import android.content.Context
 import android.content.SharedPreferences
 import android.util.Log
+import androidx.core.content.res.ResourcesCompat
 import com.mahmoud.dfont.utils.DFontKeys.DFONT_SHARED_PREFERENCES_NAME
 import com.mahmoud.dfont.utils.DFontKeys.DFONT_TAG
+import com.mahmoud.dfont.utils.DFontKeys.DFONT_TYPEFACE
 import com.mahmoud.dfont.utils.DFontKeys.INT_DEFAULT_VALUE
 import com.mahmoud.dfont.utils.DFontKeys.STRING_DEFAULT_VALUE
 
@@ -100,4 +102,10 @@ object DFontSharedPreferences {
         prefs?.edit()?.putInt(key, value)?.apply() ?:
         throw UninitializedPropertyAccessException(notInitializedErrorMessage)
     }
+    
+    @Throws(UninitializedPropertyAccessException::class)
+    fun saveFont(fontResource: Int = ResourcesCompat.ID_NULL ) {
+        putInt(DFONT_TYPEFACE, fontResource)
+    }
+
 }

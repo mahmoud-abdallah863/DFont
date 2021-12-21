@@ -1,16 +1,16 @@
 package com.mahmoud.dfont.extensions
 
 import android.view.ViewGroup
-import androidx.core.view.allViews
+import androidx.core.view.children
 
 
 /**
  * Loop over all views inside this viewGroup.
  *
- * Recursively call [ViewGroup.notifyTypefaceChanged] on all ViewGroup childrens.
+ * Recursively call [ViewGroup.notifyTypefaceChanged] on all ViewGroup children.
  */
 fun ViewGroup.notifyTypefaceChanged() {
-    allViews.forEach {
+    children.forEach {
         if (it is ViewGroup) {
             it.notifyTypefaceChanged()
         }

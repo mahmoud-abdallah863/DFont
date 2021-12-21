@@ -18,7 +18,9 @@ object ChangeableTypefaceViews {
      */
     private var androidViews: Set<String> = setOf(
         "android.widget.TextView",
-        "android.widget.Button"
+        "android.widget.Button",
+        "com.google.android.material.textview.MaterialTextView",
+        "com.google.android.material.button.MaterialButton"
     )
 
 

@@ -22,11 +22,15 @@ import com.mahmoud.dfont.utils.DFontKeys.DFONT_TYPEFACE
  */
 fun View.notifyTypefaceChanged() {
 
-    if (!ChangeableTypefaceViews.hasTypeface(this)) { return }
+    if (!ChangeableTypefaceViews.hasTypeface(this)) {
+        Log.d(DFONT_TAG, "notifyTypefaceChanged: ${this.javaClass.name} has no typeface.")
+        return
+    }
 
     val typeface = DFontSharedPreferences.getInt(DFONT_TYPEFACE, ResourcesCompat.ID_NULL)
     if (typeface == ResourcesCompat.ID_NULL) {
-        Log.d(DFONT_TAG, "No typeface stored in DFontSharedPreferences")
+        Log.d(DFONT_TAG, "No typeface stored in DFontSharedPreferences. Call " +
+                "DFontSharedPreferences.saveFont(...) to save your desired font")
         return
     }
 

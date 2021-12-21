@@ -97,4 +97,12 @@ class DFontSharedPreferencesTest {
         val returnedValue = DFontSharedPreferences.getInt(key)
         assertEquals(INT_DEFAULT_VALUE, returnedValue)
     }
+
+    /**
+     * TODO: add test for [DFontSharedPreferences.saveFont] function
+     */
+    @Test
+    fun test_saveFont() {
+
+    }
 }
