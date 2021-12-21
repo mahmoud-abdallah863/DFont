@@ -73,7 +73,7 @@ class DFontSharedPreferencesTest {
     fun test_getInt_no_default_value_passes() {
         val returnedValue = DFontSharedPreferences.getInt("key")
 
-        assertEquals(Integer.MIN_VALUE, returnedValue)
+        assertEquals(INT_DEFAULT_VALUE, returnedValue)
     }
 
     @Test
