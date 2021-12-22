@@ -103,7 +103,6 @@ class DFontSharedPreferencesTest {
     @Test
     fun test_saveFont() {
         val fakeFontValue = 123
-        DFontSharedPreferences.clear()
         DFontSharedPreferences.saveFont(fakeFontValue)
         val fontReturned = DFontSharedPreferences.getInt(DFONT_TYPEFACE, ResourcesCompat.ID_NULL)
 
@@ -112,7 +111,6 @@ class DFontSharedPreferencesTest {
 
     @Test
     fun test_getFont_not_sending_default_value() {
-        DFontSharedPreferences.clear()
         val fontResource = DFontSharedPreferences.getFont()
 
         assertEquals(FONT_DEFAULT_VALUE, fontResource)
@@ -121,7 +119,6 @@ class DFontSharedPreferencesTest {
     @Test
     fun test_getFont_defaultValue() {
         val fakeFontValue = 123
-        DFontSharedPreferences.clear()
         val fontResourcesReturned = DFontSharedPreferences.getFont(fakeFontValue)
 
         assertEquals(fontResourcesReturned, fakeFontValue)
@@ -130,7 +127,6 @@ class DFontSharedPreferencesTest {
     @Test
     fun test_getFont() {
         val fakeFontValue = 123
-        DFontSharedPreferences.clear()
         DFontSharedPreferences.saveFont(fakeFontValue)
         val fontResourcesReturned = DFontSharedPreferences.getFont()
 
