@@ -124,4 +124,5 @@ object DFontSharedPreferences {
     fun getFont(defaultValue: Int = FONT_DEFAULT_VALUE): Int {
         return getInt(DFONT_TYPEFACE, defaultValue)
     }
+
 }

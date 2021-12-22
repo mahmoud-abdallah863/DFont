@@ -2,7 +2,6 @@ package com.mahmoud.dfont.utils
 
 import androidx.core.content.res.ResourcesCompat
 
-
 object DFontKeys {
     val DFONT_TAG = "DFontTag"
 
