@@ -32,4 +32,14 @@ class DFontSharedPreferencesExceptionsTest {
     fun test_putInt_not_initialized_exception() {
         DFontSharedPreferences.putInt("", 0)
     }
+
+    @Test(expected = UninitializedPropertyAccessException::class)
+    fun test_saveFont_not_initialized_exception() {
+        DFontSharedPreferences.saveFont(123)
+    }
+
+    @Test(expected = UninitializedPropertyAccessException::class)
+    fun test_getFont_not_initialized_exception() {
+        DFontSharedPreferences.getFont()
+    }
 }
