@@ -3,6 +3,7 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="app/src/main/res/font/montserrat.xml" value="0.2953703703703704" />
         <entry key="app/src/main/res/layout/activity_change_font.xml" value="0.25462962962962965" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.25462962962962965" />
       </map>

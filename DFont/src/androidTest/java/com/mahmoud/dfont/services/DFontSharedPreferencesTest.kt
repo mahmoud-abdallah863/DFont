@@ -1,12 +1,14 @@
 package com.mahmoud.dfont.services
 
 import android.content.Context
+import androidx.core.content.res.ResourcesCompat
 import androidx.test.core.app.ApplicationProvider
 import androidx.test.internal.runner.junit4.AndroidJUnit4ClassRunner
+import com.mahmoud.dfont.utils.DFontKeys.DFONT_TYPEFACE
+import com.mahmoud.dfont.utils.DFontKeys.FONT_DEFAULT_VALUE
 import com.mahmoud.dfont.utils.DFontKeys.INT_DEFAULT_VALUE
 import com.mahmoud.dfont.utils.DFontKeys.STRING_DEFAULT_VALUE
 import org.junit.Assert.assertEquals
-import org.junit.Assert.assertThat
 import org.junit.Before
 import org.junit.Test
 import org.junit.runner.RunWith
@@ -98,11 +100,40 @@ class DFontSharedPreferencesTest {
         assertEquals(INT_DEFAULT_VALUE, returnedValue)
     }
 
-    /**
-     * TODO: add test for [DFontSharedPreferences.saveFont] function
-     */
     @Test
     fun test_saveFont() {
+        val fakeFontValue = 123
+        DFontSharedPreferences.clear()
+        DFontSharedPreferences.saveFont(fakeFontValue)
+        val fontReturned = DFontSharedPreferences.getInt(DFONT_TYPEFACE, ResourcesCompat.ID_NULL)
 
+        assertEquals(fakeFontValue, fontReturned)
+    }
+
+    @Test
+    fun test_getFont_not_sending_default_value() {
+        DFontSharedPreferences.clear()
+        val fontResource = DFontSharedPreferences.getFont()
+
+        assertEquals(FONT_DEFAULT_VALUE, fontResource)
+    }
+
+    @Test
+    fun test_getFont_defaultValue() {
+        val fakeFontValue = 123
+        DFontSharedPreferences.clear()
+        val fontResourcesReturned = DFontSharedPreferences.getFont(fakeFontValue)
+
+        assertEquals(fontResourcesReturned, fakeFontValue)
+    }
+
+    @Test
+    fun test_getFont() {
+        val fakeFontValue = 123
+        DFontSharedPreferences.clear()
+        DFontSharedPreferences.saveFont(fakeFontValue)
+        val fontResourcesReturned = DFontSharedPreferences.getFont()
+
+        assertEquals(fakeFontValue, fontResourcesReturned)
     }
 }

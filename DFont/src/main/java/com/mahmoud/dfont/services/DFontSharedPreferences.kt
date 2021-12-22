@@ -8,6 +8,7 @@ import androidx.core.content.res.ResourcesCompat
 import com.mahmoud.dfont.utils.DFontKeys.DFONT_SHARED_PREFERENCES_NAME
 import com.mahmoud.dfont.utils.DFontKeys.DFONT_TAG
 import com.mahmoud.dfont.utils.DFontKeys.DFONT_TYPEFACE
+import com.mahmoud.dfont.utils.DFontKeys.FONT_DEFAULT_VALUE
 import com.mahmoud.dfont.utils.DFontKeys.INT_DEFAULT_VALUE
 import com.mahmoud.dfont.utils.DFontKeys.STRING_DEFAULT_VALUE
 
@@ -102,10 +103,26 @@ object DFontSharedPreferences {
         prefs?.edit()?.putInt(key, value)?.apply() ?:
         throw UninitializedPropertyAccessException(notInitializedErrorMessage)
     }
-    
+
+    /**
+     * This is like calling [putInt] function. The reason this functions exists is that users
+     * of this library don't have to worry about remembering key [DFONT_TYPEFACE]
+     * @throws [UninitializedPropertyAccessException]
+     */
     @Throws(UninitializedPropertyAccessException::class)
     fun saveFont(fontResource: Int = ResourcesCompat.ID_NULL ) {
         putInt(DFONT_TYPEFACE, fontResource)
+    }
+
+    /**
+     * This is like calling [getInt] function. The reason tis function exist is that users of this
+     * library don'T have to worry about remembering the key [DFONT_TYPEFACE]
+     * @param[defaultValue] default value for font resource
+     * @throws [UninitializedPropertyAccessException]
+     */
+    @Throws(UninitializedPropertyAccessException::class)
+    fun getFont(defaultValue: Int = FONT_DEFAULT_VALUE): Int {
+        return getInt(DFONT_TYPEFACE, defaultValue)
     }
 
 }

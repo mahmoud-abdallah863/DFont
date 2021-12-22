@@ -1,5 +1,7 @@
 package com.mahmoud.dfont.utils
 
+import androidx.core.content.res.ResourcesCompat
+
 object DFontKeys {
     val DFONT_TAG = "DFontTag"
 
@@ -13,4 +15,5 @@ object DFontKeys {
     // Shared Preferences Default values
     val STRING_DEFAULT_VALUE = ""
     val INT_DEFAULT_VALUE = Integer.MIN_VALUE
+    val FONT_DEFAULT_VALUE = ResourcesCompat.ID_NULL
 }

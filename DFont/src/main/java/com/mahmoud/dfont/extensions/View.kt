@@ -6,7 +6,6 @@ import androidx.core.content.res.ResourcesCompat
 import com.mahmoud.dfont.services.ChangeableTypefaceViews
 import com.mahmoud.dfont.services.DFontSharedPreferences
 import com.mahmoud.dfont.utils.DFontKeys.DFONT_TAG
-import com.mahmoud.dfont.utils.DFontKeys.DFONT_TYPEFACE
 
 
 /**
@@ -27,7 +26,7 @@ fun View.notifyTypefaceChanged() {
         return
     }
 
-    val typeface = DFontSharedPreferences.getInt(DFONT_TYPEFACE, ResourcesCompat.ID_NULL)
+    val typeface = DFontSharedPreferences.getFont()
     if (typeface == ResourcesCompat.ID_NULL) {
         Log.d(DFONT_TAG, "No typeface stored in DFontSharedPreferences. Call " +
                 "DFontSharedPreferences.saveFont(...) to save your desired font")
