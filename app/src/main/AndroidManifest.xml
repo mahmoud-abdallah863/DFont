@@ -1,4 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
+<!--
+  ~
+  ~ Created by mahmoud on 12/27/21, 11:33 PM
+  ~ Copyright (c) 2021 . All rights reserved.
+  ~ Last modified 12/22/21, 10:24 AM
+  -->
+
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.mahmoud.dfont_app">
 

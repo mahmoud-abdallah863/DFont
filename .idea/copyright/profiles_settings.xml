@@ -1,0 +1,8 @@
+<component name="CopyrightManager">
+  <settings default="copyrights">
+    <module2copyright>
+      <element module="All" copyright="copyrights" />
+      <element module="All Changed Files" copyright="copyrights" />
+    </module2copyright>
+  </settings>
+</component>

@@ -1,4 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
+<!--
+  ~
+  ~ Created by mahmoud on 12/27/21, 11:33 PM
+  ~ Copyright (c) 2021 . All rights reserved.
+  ~ Last modified 12/22/21, 10:24 AM
+  -->
+
 <resources>
     <array name="com_google_android_gms_fonts_certs">
         <item>@array/com_google_android_gms_fonts_certs_dev</item>
