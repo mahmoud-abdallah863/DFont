@@ -1,4 +1,9 @@
 # DFont Library
+[![Contributor Covenant](https://img.shields.io/badge/Contributor%20Covenant-1.0-4baaaa.svg)](CODE_OF_CONDUCT.md)
+[![Contributing](https://img.shields.io/badge/contributing-docs-blue)](CONTRIBUTING.md)
+[![License](https://img.shields.io/badge/license-MIT-red)](LICENSE)
+![example workflow](https://github.com/mahmoud-abdallah863/DFont/actions/workflows/test-app-workflow.yml/badge.svg)
+![example workflow](https://github.com/mahmoud-abdallah863/DFont/actions/workflows/build-app-workflow.yml/badge.svg)
 
 Welcome fellow Android geeks. This library is built to make it easy to change text font in your app.
 
