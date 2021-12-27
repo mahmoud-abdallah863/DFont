@@ -1,3 +1,10 @@
+/*
+ *
+ * Created by mahmoud on 12/27/21, 11:33 PM
+ * Copyright (c) 2021 . All rights reserved.
+ * Last modified 12/22/21, 10:24 AM
+ */
+
 package com.mahmoud.dfont.utils
 
 import androidx.core.content.res.ResourcesCompat

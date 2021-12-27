@@ -1,3 +1,10 @@
+/*
+ *
+ * Created by mahmoud on 12/27/21, 11:33 PM
+ * Copyright (c) 2021 . All rights reserved.
+ * Last modified 12/27/21, 8:37 AM
+ */
+
 package com.mahmoud.dfont_app.activities
 
 import android.os.Bundle
