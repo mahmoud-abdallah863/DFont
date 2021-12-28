@@ -8,7 +8,9 @@
 package com.mahmoud.dfont_app
 
 import android.app.Application
+import com.mahmoud.dfont.services.ChangeableTypefaceViews
 import com.mahmoud.dfont.services.DFontSharedPreferences
+import com.mahmoud.dfont_app.ui.CustomTextView
 
 class DFontApplication: Application() {
 
@@ -17,5 +19,12 @@ class DFontApplication: Application() {
         super.onCreate()
 
         DFontSharedPreferences.init(applicationContext)
+        ChangeableTypefaceViews.customViewsMap["com.mahmoud.dfont_app.ui.CustomTextView"] = { view ->
+            (view as CustomTextView).apply {
+                val fontResource = DFontSharedPreferences.getFont()
+                setFontResource(fontResource)
+                invalidate()
+            }
+        }
     }
 }
