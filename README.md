@@ -75,11 +75,12 @@ that font has changed.
  It's very similar to the above. There is 1 extra step for views. Read [this](#custom_view_support) to
  understand what's happening behind the scene.
  ``` kotlin
- ChangeableTypefaceViews.customViewsMap[/** full class name */] = { 
+ ChangeableTypefaceViews.customViewsMap[/** full class name */] = { view ->
  // function that will be executed when font changes
  }
  ```
- You need to define this before notifying typeface changed. It's a map, so defining this multiple times won't affect 
+ You need to define this before notifying typeface changed. Cast view to your custom class to 
+ be able to use it's functions and variables. CustomViewsMap is a map, so defining this multiple times won't affect 
  anything. But preferably, define it once to avoid redundant code and feature bugs.
  
  <br/>

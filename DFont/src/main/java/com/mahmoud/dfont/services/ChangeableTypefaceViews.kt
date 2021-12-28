@@ -38,8 +38,8 @@ object ChangeableTypefaceViews {
      * - K : Class full name
      * - V : function that will be executed when [changeTypeface] is called
      *
-     * We send the view in the callback function for you to have access to your class
-     * variables and functions.
+     * View is sent as a parameter in the callback function. Cast it to have access to your
+     * custom view  functions and variables.
      */
     var customViewsMap: MutableMap<String, (view: View) -> Unit> = mutableMapOf()
 
