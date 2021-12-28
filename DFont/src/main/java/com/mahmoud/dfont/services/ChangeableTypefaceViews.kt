@@ -37,8 +37,11 @@ object ChangeableTypefaceViews {
      * Map<K, V>:
      * - K : Class full name
      * - V : function that will be executed when [changeTypeface] is called
+     *
+     * We send the view in the callback function for you to have access to your class
+     * variables and functions.
      */
-    var customViewsMap: MutableMap<String, () -> Unit> = mutableMapOf()
+    var customViewsMap: MutableMap<String, (view: View) -> Unit> = mutableMapOf()
 
 
     /**
@@ -90,7 +93,7 @@ object ChangeableTypefaceViews {
 
             customViewsMap.containsKey(viewClassName) -> {
                 val customFunction = customViewsMap[viewClassName]!!
-                customFunction()
+                customFunction(view)
                 Log.d(DFONT_TAG, "changeTypeface: $viewClassName -> called custom function")
             }
         }
