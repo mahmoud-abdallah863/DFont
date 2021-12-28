@@ -24,15 +24,24 @@
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
+    <com.mahmoud.dfont_app.ui.CustomTextView
+        android:id="@+id/text_customTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="50dp"
+        android:layout_marginTop="16dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/text_title" />
+
 
     <Button
         android:id="@+id/button_changeFontActivity"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="change app text font"
         android:layout_marginTop="16dp"
+        android:text="change app text font"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/text_title" />
+        app:layout_constraintTop_toBottomOf="@id/text_customTextView" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

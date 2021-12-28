@@ -8,12 +8,9 @@
 package com.mahmoud.dfont_app.activities
 
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.util.Log
-import androidx.core.content.res.ResourcesCompat
-import com.mahmoud.dfont.utils.DFontKeys.DFONT_TAG
-import com.mahmoud.dfont_app.R
+import androidx.appcompat.app.AppCompatActivity
+import com.mahmoud.dfont.extensions.notifyTypefaceChanged
 import com.mahmoud.dfont_app.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
@@ -33,17 +30,6 @@ class MainActivity : AppCompatActivity() {
 
     override fun onResume() {
         super.onResume()
-
-        val titleTypeface = binding.textTitle.typeface
-        val latoTypeface = ResourcesCompat.getFont(this, R.font.lato)
-        val montserratTypeface = ResourcesCompat.getFont(this, R.font.montserrat)
-
-        val message = when (titleTypeface) {
-            latoTypeface -> "onResume: title typeface is lato"
-            montserratTypeface -> "onResume: title typeface is montserrate"
-            else -> "onResume: title typeface is something"
-        }
-
-        Log.d(DFONT_TAG, message)
+        binding.root.notifyTypefaceChanged()
     }
 }
