@@ -13,7 +13,7 @@ it in all your app. With this library, you can easily change it for TextView, te
 app. Not only that, if you have a custom view with text inside it, you can define your custom function to change the 
 text inside your custom view.
 
-This library uses the kotlin **extension function** and **SharedPreferences**. SharedPreferences is used to store the
+This library uses the kotlin **extension function** and **SharedPreferences**. SharedPreferences is used to store
 the font you chose, and extension function on View and ViewGroup classes will allow notifying the view/viewGroups
 that font has changed.
 
@@ -88,13 +88,13 @@ that font has changed.
  // function that will be executed when font changes
  }
  ```
- You need to define this before notifying typeface changed. Cast view to your custom class to 
+ You need to define this before notifying typeface changed. Cast `view` to your custom class to 
  be able to use its functions and variables. CustomViewsMap is a map, so defining this multiple times won't affect 
  anything. But preferably, define it once to avoid redundant code and feature bugs.
  
  
  ### <a name="change_text_font_on_all_activities">Change text font in all activities/fragments</a>
- For now, you need to call `root.notifyTypefaceChanged()` in `onResume()` function. Where root is your root view.
+ For now, you need to call `root.notifyTypefaceChanged()` in `onResume()` function. Where `root` is your root view.
  This could be updated in the feature, to make it simpler to change text font.
  
  ### <a name="custom_view_support">Support text font change in custom view</a>
