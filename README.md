@@ -5,16 +5,17 @@
 ![example workflow](https://github.com/mahmoud-abdallah863/DFont/actions/workflows/test-app-workflow.yml/badge.svg)
 ![example workflow](https://github.com/mahmoud-abdallah863/DFont/actions/workflows/build-app-workflow.yml/badge.svg)
 
-Welcome fellow Android geeks. This library is built to make it easy to change text font in your app.
+Welcome fellow Android geeks. We built this library to make it easy for you to change text font
+in your app.
 
 ## Description
-Imagine this use case with me. Your app needs to change text font, not just for a single TextView, you need to change
-it in all your app. With this library, you can easily change it for TextView, texts inside Button, etc..., in the whole
-app. Not only that, if you have a custom view with text inside it, you can define your custom function to change the 
-text inside your custom view.
+Imagine this use case with me. Your app needs to change text font, not just for a single TextView.
+You need to change it in all your app. With this library, you can easily change it for texts
+in TextView, Button, etc..., in the whole app. Not only that, if you have a custom view with
+text inside it, you can define your custom function to change the text inside your custom view.
 
 This library uses the kotlin **extension function** and **SharedPreferences**. SharedPreferences is used to store
-the font you chose, and extension function on View and ViewGroup classes will allow notifying the view/viewGroups
+the font. Extension function on View and ViewGroup classes will allow notifying the view/viewGroups
 that font has changed.
 
 ## Table of contents
@@ -25,32 +26,32 @@ that font has changed.
     - [Change text font in ViewGroup](#change_text_font_in_viewgroup)
     - [Change text font in Custom Views](#change_text_font_in_custom_views)
     - [Change text font in all activities/fragments](#change_text_font_on_all_activities)
-    - [Support text font change in custom view](#custom_view_support)
+    - [How we know if we can change view text font](#how_we_know_if_we_can_change_view_text_font)
 - [Contribution](#contribution)
 - [License](#license)
 
 
 ## <a name="how_to_use_this_library">How to use this library</a>
 ### <a name="init_dfontSharedPrefs">Initialize DFontSharedPreferences</a>
- Before doing anything, `DFontSharedPreferences` need to be initialized, otherwise if you try to use any function
- inside `DFontSharedPreferences` object `UninitializedPropertyAccessException` will be thrown.
+ Before doing anything, `DFontSharedPreferences` need to be initialized, otherwise if you try to
+ use any function inside `DFontSharedPreferences` object `UninitializedPropertyAccessException`
+ will be thrown.
  ``` kotlin
  DFontSharedPreferences.init( /** context */ )
  ```
- After calling this function, a shared preferences variable will be created from the provided context,
- `dfont_sharedpreferences_name` as a name and mode = `Context.MODE_PRIVATE`.
+ After calling this function, a shared preferences variable will be created from the provided
+ context.
  
  DFontSharedPreferences is an object, so you can initialize it anywhere and more than once, it will not affect anything.
  
  
  ### <a name="saving_typeface">Saving typeface</a>
- For now, the library supports pre-downloaded fonts, and saved a reference for them in `DFontSharedPreferences` as
- ints. By default `DFontSharedPreferences` won't have ny typeface saved. To save your font call `saveFont(...)`
+ For now, the library only supports pre-downloaded fonts, and saved a reference for them in `DFontSharedPreferences` as
+ ints. By default `DFontSharedPreferences` won't have any typeface saved. To save your font call `saveFont(...)`
  function as below
  ``` kotlin
  DFontSharedPreferences.saveFont(R.font.lato)
  ```
- This will save `R.font.lato` as an int value.
  
  
  ### <a name="change_view_text_font">Change View text font</a>
@@ -61,9 +62,11 @@ that font has changed.
  // Old school
  findViewById<TextView>(R.id.title).notifyTypefaceChanged()
  ``` 
- `notifyTypefaceChanged` is an extension function on View class. This will check if we know how to change the view
- text font, also check if a font is saved in `DFontSharedPreferences`. If all the above conditions are true, the typeface on
- this view will be changed.
+ `notifyTypefaceChanged()` is an extension function on View class. In it we check if we know
+ how to change the view text font, also check if a font is saved in`DFontSharedPreferences`.
+ If all the above conditions are true, the typeface on this view will be changed.
+
+See also: [How we know if we can change view text font](#how_we_know_if_we_can_change_view_text_font)
  
  
  ### <a name="change_text_font_in_viewgroup">Change text font in ViewGroup</a>
@@ -74,15 +77,15 @@ that font has changed.
  // Old school
  findViewById<ConstraintLayout>(R.id.root).notifyTypefaceChanged()
  ```
- It's very similar to how we do it for views. You call `notifyTypefaceChanged`, which is an extension function on
- **ViewGroup** class. This function will loop over all this viewGroup child, and if one of its children is a 
- viewGroup itself, it will also loop over its children. On each view child `view.notifyTypefaceChanged()` will 
- be called.
+ It's very similar to how we do it for views. You call `notifyTypefaceChanged()`, which is an extension function on
+ **ViewGroup** class. This function will loop over all viewGroup children. On each view child
+ `view.notifyTypefaceChanged()` will be called.
  
  
  ### <a name="change_text_font_in_custom_views">Change text font in Custom Views</a>
- It's very similar to the above. There is 1 extra step for views. Read [this](#custom_view_support) to
- understand what's happening behind the scene.
+ It's very similar to the above. There is 1 extra step for views. Read
+ [this](#how_we_know_if_we_can_change_view_text_font) to understand what's happening behind
+ the scene.
  ``` kotlin
  ChangeableTypefaceViews.customViewsMap[/** full class name */] = { view ->
  // function that will be executed when font changes
@@ -90,28 +93,42 @@ that font has changed.
  ```
  You need to define this before notifying typeface changed. Cast `view` to your custom class to 
  be able to use its functions and variables. CustomViewsMap is a map, so defining this multiple times won't affect 
- anything. But preferably, define it once to avoid redundant code and feature bugs.
+ anything. But preferably, define it once to avoid redundant code and/or weird behaviour.
  
  
  ### <a name="change_text_font_on_all_activities">Change text font in all activities/fragments</a>
  For now, you need to call `root.notifyTypefaceChanged()` in `onResume()` function. Where `root` is your root view.
  This could be updated in the feature, to make it simpler to change text font.
- 
- ### <a name="custom_view_support">Support text font change in custom view</a>
-There are 2 types of views. Android build-in views and your custom views. For android views, we already know how to
-change their font, but for your custom views, you need to provide your custom function for changing text font.
 
-In `ChangeableTypefaceViews` we have `androidViews` set which stores class names for all build in android views
-with a text, and `customViewsMap` map which is for your custom views. `customViewsMap` is as follows:
+### <a name="how_we_know_if_we_can_change_view_text_font">How we know if we can change view text font</a>
+There are 2 types of views. Android build-in views and your custom views.
+For android views, we already know if the view has a text.
+But for your custom views, we can't know. That's why you need to tell us that a custom view `X` has
+a text and how to change it's font. 
+
+When you call `notifyTypefaceChanged()` function on a view/viewGroup, the first thing we do is check if that
+view has a text. Using this function:
 ```kotlin
-var customViewsMap: MutableMap<String, (view: View) -> Unit>
-// key: your class full name (ex: android.widget.TextView)
-// value: function will be called when we need to change this view text font
+fun hasTypeface(view: View): Boolean {
+    return androidViews.contains(view.javaClass.name) ||
+            customViewsMap.containsKey(view.javaClass.name)
+}
 ```
-When you call View/ViewGroup `notifyTypefaceChanged()` function. First, we check if we know how to change
-that view text font. So, we check if the view class name exists in `androidViews` set or `customViewsMap`
-map, we will change its text font, else nothing will happen.
+A view has a text if it is in `androidViews` or `customViewsMap`.
 
+```kotlin
+private var androidViews: Set<String>
+// Pre-populated set with hardcoded built-in class names that have text.
+```
+
+```kotlin
+var customViewsMap: MutableMap<String, (view: View) -> Unit> = mutableMapOf()
+/**
+ * First, `customViewsMap` is public, and it's a mutable map, which means you can modify it.
+ * Key is the class name, and the value is a function.
+ * Read [how to support your custom view](#custom_view_support)
+ */
+```
 
 ## <a name="contribution">Contribution</a>
 You are more than welcome to contribute. It is still under development.
