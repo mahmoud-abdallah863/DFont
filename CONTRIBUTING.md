@@ -10,7 +10,7 @@
 
 
 
-## <a name="#what_to_work_on">What to work on</a>
+## <a name="what_to_work_on">What to work on</a>
 In [this project](https://github.com/mahmoud-abdallah863/DFont/projects/2) you can see
 all the tasks for release v0.1
 
