@@ -130,14 +130,13 @@ var customViewsMap: MutableMap<String, (view: View) -> Unit> = mutableMapOf()
  */
 ```
 
-## <a name="contribution">Contribution</a>
+# <a name="contribution">Contribution</a>
 You are more than welcome to contribute. 
 Check [this](https://github.com/mahmoud-abdallah863/DFont/blob/main/CONTRIBUTING.md) for more info,
 and tasks you can work on. If you like :)
 
-## <a name="license">License</a>
-MIT License
-
+# <a name="license">License</a>
+```
 Copyright (c) 2021 Mahmoud Abdallah
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -157,3 +156,4 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
+```
