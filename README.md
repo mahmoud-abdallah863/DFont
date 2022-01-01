@@ -131,8 +131,9 @@ var customViewsMap: MutableMap<String, (view: View) -> Unit> = mutableMapOf()
 ```
 
 ## <a name="contribution">Contribution</a>
-You are more than welcome to contribute. It is still under development.
-Check [this](https://github.com/mahmoud-abdallah863/DFont/blob/main/CONTRIBUTING.md) for more info.
+You are more than welcome to contribute. 
+Check [this](https://github.com/mahmoud-abdallah863/DFont/blob/main/CONTRIBUTING.md) for more info,
+and tasks you can work on. If you like :)
 
 ## <a name="license">License</a>
 MIT License
