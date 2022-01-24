@@ -1,0 +1,3 @@
+install:
+  - ./gradlew :DFont:build :DFont:publishToMavenLocal -x :DFont:test
+  - find . -name "*.aar"
