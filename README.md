@@ -1,4 +1,4 @@
-# DFont Library
+# DFont Library (Not Finished)
 [![Contributor Covenant](https://img.shields.io/badge/Contributor%20Covenant-1.0-4baaaa.svg)](CODE_OF_CONDUCT.md)
 [![Contributing](https://img.shields.io/badge/contributing-docs-blue)](CONTRIBUTING.md)
 [![License](https://img.shields.io/badge/license-MIT-red)](LICENSE)
